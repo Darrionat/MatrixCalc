@@ -20,7 +20,7 @@ public:
         this->coords = new int[dim];
     }
 
-    int getDimension(){
+    int getDimension() {
         return dim;
     }
 
@@ -31,10 +31,10 @@ public:
     Vector removeRow(int row);
 
     /**
-     * Gets the coordinate for a specified dimension
-     * @param dim The dimension of the coordinate
-     * @return The coordinate
-     */
+    * Gets the coordinate of a certain dimension of a vector.
+    * @param coord The dimension of the coordinate, starting at 1.
+    * @return Return the value for that dimension.
+    */
     int getCoord(int dim);
 
     /**
@@ -43,6 +43,12 @@ public:
      * @param value The value of the coordinate
      */
     void setCoord(int coord, int value);
+
+    /**
+     * Scales a vector by a constant
+     * @param scalar The constant to scale by
+     */
+    void scale(int scalar);
 
     void print();
 };

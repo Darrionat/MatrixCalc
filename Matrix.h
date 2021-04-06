@@ -9,6 +9,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <math.h>
+#include <stack>
 
 using namespace std;
 
@@ -28,7 +29,7 @@ public:
      * @param cols The amount of columns
      */
     Matrix(int rows, int cols) : rows(rows), cols(cols) {
-        this->colVectors = (Vector *) malloc(sizeof(Vector) * cols);
+        this->colVectors = new Vector[cols];
     }
 
     /**
@@ -55,6 +56,8 @@ public:
      */
     int det();
 
+    int det2();
+
     /**
      * Gets the value at a given coordinate
      * @param row The row of the matrix. Starting at 0
@@ -63,8 +66,14 @@ public:
      */
     int getValue(int row, int col) {
         Vector v = colVectors[col];
-        return v.getCoord(row);
+        return v.getCoord(row + 1);
     }
+
+    /**
+     * Scales a Matrix by a constant
+     * @param scalar The constant to scale the matrix by
+     */
+    void scale(int scalar);
 
     void print();
 

@@ -17,11 +17,18 @@ Vector Vector::removeRow(int row) {
 }
 
 int Vector::getCoord(int coord) {
-    return coords[coord];
+    return coords[coord - 1];
 }
 
 void Vector::setCoord(int coord, int value) {
     this->coords[coord - 1] = value;
+}
+
+void Vector::scale(int scalar) {
+    for (int i = 1; i <= dim; i++) {
+        int currentValue = getCoord(i);
+        setCoord(i, currentValue * scalar);
+    }
 }
 
 void Vector::print() {

@@ -10,17 +10,13 @@ int main() {
 
     int m;
     cin >> m;
-    if (m > 10) {
-        main();
-        return 0;
-    }
 
     int n = m;
     cout << "Generating random matrix" << endl;
-    long start = time(NULL);
+
     Matrix matrix(m, n);
     // Seeds the random
-    srand(start);
+    srand(time(NULL));
 
     for (int col = 0; col < n; col++) {
         Vector vec(m);
@@ -36,7 +32,10 @@ int main() {
 
     matrix.print();
     //cout << time(NULL) << endl;
-    cout << "Determinant =" << matrix.det() << endl;
+
+    long start = time(NULL);
+    cout << "Determinant2 =" << matrix.det2() << endl;
     cout << "Time taken: " << time(NULL) - start << "s" << endl;
+
     return 0;
 }
